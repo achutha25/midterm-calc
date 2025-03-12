@@ -1,0 +1,11 @@
+# Ignore virtual environment
+venv/
+*.sw*
+.pytest_cache
+# Ignore Python bytecode files
+*__pycache__
+logs
+
+# Ignore IDE-related files
+.idea/
+.vscode/
