@@ -9,3 +9,9 @@ logs
 # Ignore IDE-related files
 .idea/
 .vscode/
+
+# Ignore coverage files
+.coverage
+
+venv/
+.env
