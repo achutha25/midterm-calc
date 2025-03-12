@@ -1,0 +1,18 @@
+[MESSAGES CONTROL]
+disable=trailing-whitespace,unused-import,line-too-long,redefined-outer-name,unused-argument,line-too-long,
+         redefined-outer-name,W0612
+[MASTER]
+# Ignore the 'trailing-whitespace' warning
+ignore=tests/*
+
+# Disable missing module and function docstring warnings
+disable=missing-module-docstring,missing-function-docstring,comparison-with-callable,wrong-import-order,trailing-newlines
+init-hook='import sys; sys.path.append(".")'
+extension-pkg-whitelist=pydantic
+load-plugins=pylint_django
+[FORMAT]
+max-line-length=120
+
+[TYPECHECK]
+# Disable the warning for the wrong import order (standard import should be before third-party imports)
+ignored-modules=decimal,pytest
