@@ -13,5 +13,6 @@ def test_app_greet_command(capfd, monkeypatch):
 
     out, err = capfd.readouterr()
     
-    assert "Hello, World!" in out
+    assert "Greetings, Universe!" in out
+
 
