@@ -16,6 +16,14 @@ class App:
         self.settings.setdefault('ENVIRONMENT', 'PRODUCTION')
         self.command_handler = CommandHandler()
 
+ def configure_logging(self):
+        logging_conf_path = 'logging.conf'
+        if os.path.exists(logging_conf_path):
+            logging.config.fileConfig(logging_conf_path, disable_existing_loggers=False)
+        else:
+            logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+        logging.info("Logging configured.")
+
  def start(self):
         self.load_plugins()
         logging.info("Application started. Type 'exit' to exit.")
