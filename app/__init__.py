@@ -29,6 +29,9 @@ def load_environment_variables(self):
         logging.info("Environment variables loaded.")
         return settings
 
+def get_environment_variable(self, env_var: str = 'ENVIRONMENT'):
+        return self.settings.get(env_var, None)
+
 def load_plugins(self):
         plugins_package = 'app.plugins'
         plugins_path = plugins_package.replace('.', '/')
@@ -42,6 +45,14 @@ def load_plugins(self):
                     self.register_plugin_commands(plugin_module, plugin_name)
                 except ImportError as e:
                     logging.error(f"Error importing plugin {plugin_name}: {e}")
+
+def register_plugin_commands(self, plugin_module, plugin_name):
+        for item_name in dir(plugin_module):
+            item = getattr(plugin_module, item_name)
+            if isinstance(item, type) and issubclass(item, Command) and item is not Command:
+                self.command_handler.register_command(plugin_name, item())
+                logging.info(f"Command '{plugin_name}' from plugin '{plugin_name}' registered.")
+
 
  def start(self):
         self.load_plugins()
