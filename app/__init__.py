@@ -24,6 +24,11 @@ class App:
             logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
         logging.info("Logging configured.")
 
+def load_environment_variables(self):
+        settings = {key: value for key, value in os.environ.items()}
+        logging.info("Environment variables loaded.")
+        return settings
+
  def start(self):
         self.load_plugins()
         logging.info("Application started. Type 'exit' to exit.")
