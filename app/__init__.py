@@ -16,6 +16,26 @@ class App:
         self.settings.setdefault('ENVIRONMENT', 'PRODUCTION')
         self.command_handler = CommandHandler()
 
+ def start(self):
+        self.load_plugins()
+        logging.info("Application started. Type 'exit' to exit.")
+        try:
+            while True:
+                cmd_input = input(">>> ").strip()
+                if cmd_input.lower() == 'exit':
+                    logging.info("Application exit.")
+                    sys.exit(0)
+                try:
+                    self.command_handler.execute_command(cmd_input)
+                except KeyError:
+                    logging.error(f"Unknown command: {cmd_input}")
+                    sys.exit(1)
+        except KeyboardInterrupt:
+            logging.info("Application interrupted and exiting gracefully.")
+            sys.exit(0)
+        finally:
+            logging.info("Application shutdown.")
+
 if __name__ == "__main__":
     app = App()
     app.start()
