@@ -29,6 +29,20 @@ def load_environment_variables(self):
         logging.info("Environment variables loaded.")
         return settings
 
+def load_plugins(self):
+        plugins_package = 'app.plugins'
+        plugins_path = plugins_package.replace('.', '/')
+        if not os.path.exists(plugins_path):
+            logging.warning(f"Plugins directory '{plugins_path}' not found.")
+            return
+        for _, plugin_name, is_pkg in pkgutil.iter_modules([plugins_path]):
+            if is_pkg:
+                try:
+                    plugin_module = importlib.import_module(f'{plugins_package}.{plugin_name}')
+                    self.register_plugin_commands(plugin_module, plugin_name)
+                except ImportError as e:
+                    logging.error(f"Error importing plugin {plugin_name}: {e}")
+
  def start(self):
         self.load_plugins()
         logging.info("Application started. Type 'exit' to exit.")
