@@ -56,7 +56,7 @@ def register_plugin_commands(self, plugin_module, plugin_name):
 
  def start(self):
         self.load_plugins()
-        logging.info("Application started. Type 'exit' to exit.")
+        logging.info("Application started.please Type 'exit' to exit.")
         try:
             while True:
                 cmd_input = input(">>> ").strip()
@@ -69,7 +69,7 @@ def register_plugin_commands(self, plugin_module, plugin_name):
                     logging.error(f"Unknown command: {cmd_input}")
                     sys.exit(1)
         except KeyboardInterrupt:
-            logging.info("Application interrupted and exiting gracefully.")
+            logging.info("Application interrupted and exiting .")
             sys.exit(0)
         finally:
             logging.info("Application shutdown.")
