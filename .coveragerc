@@ -3,3 +3,5 @@ omit =
     *main.py
     tests/conftest.py
     tests/__init__.py
+    app/plugins/csv/__init__.py       
+    app/plugins/data/__init__.py 
