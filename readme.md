@@ -154,3 +154,6 @@ def load_plugins(self):
 In app/plugins/greet/init.py, the GreetCommand is defined as a plugin that extends Command, demonstrating how new functionality can be added seamlessly via plugins.
 
 
+Presentation link:
+
+ https://drive.google.com/file/d/1Ca5GC8VQvwFp4c93F4ZpJeNYMjziXPvy/view?usp=share_link
