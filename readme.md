@@ -6,6 +6,7 @@ This project is an advanced Python-based calculator application designed to demo
 The project employs object-oriented programming principles, including the use of design patterns such as the Command pattern to handle different operations. It uses logging to track application activities and errors, and configuration is dynamically loaded through environment variables. The application is designed with testability in mind, achieving high code quality through unit tests with Pytest and adhering to PEP 8 standards using Pylint. The project also leverages Git for version control, and continuous integration tools like GitHub Actions ensure that code passes all tests before deployment.
 
 Setup and Usage Instructions:
+
 To get my code running and make calculator application running, follow these steps:
 
 Open terminal and Clone my Repo into your desired location.
@@ -58,6 +59,7 @@ Similarly, in app/plugins/greet/init.py, the GreetCommand subclass extends Comma
 
 
 Design Patterns Facade Pattern – Implemented in history management to simplify access to complex underlying functionality.
+
 Factory Method – Implemented in app/init.py to enable creation of objects based on input type.
 
 
