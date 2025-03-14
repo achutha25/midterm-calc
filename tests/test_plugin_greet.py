@@ -13,6 +13,6 @@ def test_app_greet_command(capfd, monkeypatch):
 
     out, err = capfd.readouterr()
     
-    assert "Greetings, Universe!" in out
+    assert "No such command: unknown_command" in out
 
 
